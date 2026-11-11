@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
+  <meta name="theme-color" content="#101a20" />
+  <title>ZIGGA — After the Fall</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Zigga home"><span class="brand-mark">✦</span><span>ZIGGA<span class="brand-sub">AFTER THE FALL</span></span></a>
+      <div class="world-status"><span class="live-dot"></span><span id="weather">CLEAR SKIES</span><i></i><span id="season">CYCLE 01 · SPRING</span></div>
+      <button class="icon-btn" id="soundBtn" aria-label="Toggle sound">♫</button>
+    </header>
+    <section class="game-layout">
+      <section class="play-column">
+        <div class="game-frame">
+          <div class="hud-top">
+            <div class="pilot-card"><div class="pilot-avatar">👨‍🚀</div><div><b>ROOKIE PILOT</b><span>LEVEL <strong id="level">01</strong> <em id="rank"> · OFF-WORLDER</em></span></div></div>
+            <div class="vitals"><div class="vital"><span>❤</span><div class="meter"><i id="healthFill"></i></div><b id="healthText">100</b></div><div class="vital xp-vital"><span>✦</span><div class="meter"><i id="xpFill"></i></div><b id="xpText">0 / 30</b></div></div>
+          </div>
+          <canvas id="game" width="480" height="270" aria-label="Zigga game world"></canvas>
+          <div class="location-tag"><span class="pin">⌖</span><span id="location">CRASH SITE</span><span class="coord" id="coords">X 08 · Y 12</span></div>
+          <div class="event-toast" id="toast">A strange new world...</div>
+          <div class="touch-controls" aria-label="Touch movement controls">
+            <div class="dpad"><button data-dir="up" aria-label="Move up">▲</button><div><button data-dir="left" aria-label="Move left">◀</button><button data-dir="down" aria-label="Move down">▼</button><button data-dir="right" aria-label="Move right">▶</button></div></div>
+            <div class="touch-actions"><button class="touch-action attack" data-action="attack">⚔<small>HIT</small></button><button class="touch-action use" data-action="interact">✦<small>USE</small></button></div>
+          </div>
+          <div class="frame-bottom"><span><b>●</b> PLANETARY LINK STABLE</span><span>DAY <strong id="day">01</strong> <i>·</i> <strong id="clock">08:00</strong></span></div>
+        </div>
+        <div class="quickbar"><span class="quick-label">QUICK USE</span><button class="quick-item selected" data-slot="0"><kbd>1</kbd><span>⛏</span><small>PICKAXE</small></button><button class="quick-item" data-slot="1"><kbd>2</kbd><span>🪓</span><small>AXE</small></button><button class="quick-item" data-slot="2"><kbd>3</kbd><span>🌱</span><small>SEEDS</small></button><button class="quick-item" data-slot="3"><kbd>4</kbd><span>🎣</span><small>ROD</small></button><div class="quick-hint">WASD / ARROWS TO MOVE <i>·</i> SPACE TO USE</div></div>
+      </section>
+      <aside class="side-panel">
+        <div class="panel-heading"><div><span class="eyebrow">YOUR FRONTIER</span><h1>Make a life<br>on <span>Zigga.</span></h1></div><div class="planet-icon">✦</div></div>
+        <div class="objective"><div class="objective-icon">⌂</div><div><span class="eyebrow">CURRENT OBJECTIVE</span><b id="objective">Gather wood to build shelter</b><div class="objective-progress"><span id="objectiveBar"></span></div></div></div>
+        <div class="stat-row"><div class="stat"><span>DAY / CYCLE</span><b><strong id="sideDay">01</strong> <small>/ 28</small></b></div><div class="stat"><span>WEATHER</span><b id="sideWeather">☀ Clear</b></div></div>
+        <div class="section-title"><span>FIELD KIT</span><button id="inventoryToggle">VIEW ALL ↗</button></div>
+        <div class="inventory-grid" id="inventory"></div>
+        <div class="section-title homestead-title"><span>HOMESTEAD</span><span id="homeLevel">NO SHELTER</span></div>
+        <div class="homestead"><div class="home-icon">⌂</div><div class="home-copy"><b id="homeName">Crash-site camp</b><span id="homeDesc">A roof over your head is a good start.</span></div><button class="build-btn" id="buildBtn">BUILD</button></div>
+        <div class="threat-card"><div class="threat-icon">◈</div><div><span class="eyebrow">LOCAL THREAT</span><b id="threatName">Mossback scout · Lv 1</b><span id="threatStatus">A curious shape in the grass.</span></div><span class="threat-pip"></span></div>
+        <div class="panel-footer"><span>✦ <b id="rep">0</b> FIELD NOTES</span><span id="saveStatus">AUTO-SAVED</span></div>
+      </aside>
+    </section>
+    <nav class="bottom-nav"><button class="nav-active" data-nav="world">◉ <span>WORLD</span></button><button data-nav="farm">♧ <span>FARM</span></button><button data-nav="dungeon">◇ <span>DUNGEON</span></button><button data-nav="log">≋ <span>FIELD LOG</span></button><button data-nav="map">⌖ <span>MAP</span></button><div class="nav-tip">A living planet remembers what you do.</div></nav>
+    <div class="modal hidden" id="modal"><div class="modal-card"><button class="modal-close" id="modalClose">×</button><span class="eyebrow" id="modalEyebrow">FIELD LOG</span><h2 id="modalTitle">Planetary field log</h2><div id="modalContent"></div></div></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
